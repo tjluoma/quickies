@@ -21,12 +21,15 @@ Below is a list of the available scripts and a quick summary of what each one do
 
 for i in *sh
 do
-		egrep "^# What:" "$i" | sed "s/^# What:/* **$i:**/g" >> README.md
+		egrep "^# What:" "$i" | sed "s/^# What:/\\
+* **[$i]($i):**\\
+/g" >> README.md
 done
 
 
 echo '\n\n' >> README.md
 
+cat README.md
 
 exit 0
 
