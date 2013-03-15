@@ -3,10 +3,10 @@
 # Tags:	osx diskutil sed grep
 # URL:	https://github.com/tjluoma/quickies
 
-diskutil list -plist 				|\
+diskutil list -plist 			|\
 fgrep -A1 '<key>MountPoint</key>' 	|\
 fgrep -v '<string>/</string>' 		|\
-egrep "</string>$" 					|\
+egrep "</string>$" 			|\
 sed 's#</string>##g ; s#.*<string>##g'
 
 exit 0
