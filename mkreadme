@@ -1,0 +1,34 @@
+#!/bin/zsh -f
+# generate a README from the contents of the file
+#
+# From:	Timothy J. Luoma
+# Mail:	luomat at gmail dot com
+# Date:	2013-03-15
+
+NAME="$0:t"
+
+echo "
+quickies
+========
+
+Quick little bits of shell code that come in handy.
+
+Below is a list of the available scripts and a quick summary of what each one does.
+
+" > README.md
+
+
+
+for i in *sh
+do
+		egrep "^# What:" "$i" | sed "s/^# What:/* **$i:**/g" >> README.md
+done
+
+
+echo '\n\n' >> README.md
+
+
+exit 0
+
+#
+#EOF
